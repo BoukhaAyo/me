@@ -7,7 +7,6 @@
 
 - 💬 Ask me about **React, Laravel, PHP, Javascript, Python**
 
-- 📫 How to reach me: **ayb.boukhatem@gmail.com**
 - Profile Link: <a href="https://boukhatemayoub.netlify.app/"> Click Here </a>
 
 <h3 align="left">Connect with me:</h3>
