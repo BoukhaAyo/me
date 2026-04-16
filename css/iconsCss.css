@@ -1,0 +1,2008 @@
+.icon {
+--color: black; /* color of check/arrow/etc */
+--background: #eee; /* background color of the box */
+--radius: 0.25em; /* corner rounding */
+--stroke: 0.15em; /* thickness of lines */
+
+display: inline-block;
+position: relative;
+width: var(--size);
+height: var(--size);
+border-radius: var(--radius);
+background-color: var(--background);
+box-sizing: border-box;
+vertical-align: middle;
+transition: transform 0.15s ease;
+}
+
+.icon:hover {
+transform: scale(1.05);
+}
+/* ============================= */
+/* CHECK ICON */
+/* ============================= */
+.icon-check::after {
+content: "";
+position: absolute;
+
+/* Proportional size */
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.6);
+
+/* Tick line */
+border: solid var(--color);
+border-width: 0 calc(var(--stroke)) calc(var(--stroke)) 0;
+
+transform: rotate(45deg);
+
+/* Center proportionally */
+top: calc(var(--size) * 0.15);
+left: calc(var(--size) * 0.32);
+}
+/* ============================= */
+/* ARROW ICON */
+/* ============================= */
+.icon-arrow::before,
+.icon-arrow::after {
+content: "";
+position: absolute;
+}
+
+.icon-arrow::before {
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+
+border-top: var(--stroke) solid var(--color);
+border-right: var(--stroke) solid var(--color);
+
+top: 40%;
+left: 60%;
+
+transform: translate(-50%, -50%);
+}
+
+.icon-arrow::after {
+width: calc(var(--size) * 0.6);
+height: var(--stroke);
+
+background-color: var(--color);
+
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ============================= */
+/* COPY ICON */
+/* ============================= */
+.icon-copy::before,
+.icon-copy::after {
+content: "";
+position: absolute;
+
+/* Paper size */
+width: calc(var(--size) * 0.55);
+height: calc(var(--size) * 0.65);
+
+/* Paper look */
+border: var(--stroke) solid var(--color);
+border-radius: 2px; /* Small rounding for paper corners */
+box-sizing: border-box;
+background-color: var(--background); /* Ensures front paper hides back lines */
+}
+
+/* Back Paper */
+.icon-copy::before {
+top: calc(var(--size) * 0.14);
+left: calc(var(--size) * 0.15);
+z-index: 1;
+}
+
+/* Front Paper */
+.icon-copy::after {
+top: calc(var(--size) * 0.25);
+left: calc(var(--size) * 0.35);
+z-index: 2;
+}
+
+/* ============================= */
+/* CALENDAR ICON */
+/* ============================= */
+.icon-calendar::before,
+.icon-calendar::after {
+content: "";
+position: absolute;
+box-sizing: border-box;
+}
+
+/* header strip */
+.icon-calendar::before {
+width: calc(var(--size) * 0.9);
+height: calc(var(--size) * 0.18);
+left: 50%;
+transform: translateX(-50%);
+top: calc(var(--size) * 0.08);
+background: var(--color);
+border-radius: calc(var(--radius) * 0.8);
+}
+
+/* day blocks (one square + shadows for grid) */
+.icon-calendar::after {
+width: calc(var(--size) * 0.18);
+height: calc(var(--size) * 0.18);
+left: calc(var(--size) * 0.12);
+top: calc(var(--size) * 0.38);
+background: var(--color);
+border-radius: 0.06em;
+box-shadow:
+calc(var(--size) * 0.22) 0 0 0 var(--color),
+calc(var(--size) * 0.44) 0 0 0 var(--color),
+0 calc(var(--size) * 0.22) 0 0 var(--color),
+calc(var(--size) * 0.22) calc(var(--size) * 0.22) 0 0 var(--color),
+calc(var(--size) * 0.44) calc(var(--size) * 0.22) 0 0 var(--color);
+}
+
+/* ============================= */
+/* BELL ICON */
+/* ============================= */
+.icon-bell::before,
+.icon-bell::after {
+content: "";
+position: absolute;
+box-sizing: border-box;
+}
+
+/* dome */
+.icon-bell::before {
+width: calc(var(--size) * 0.58);
+height: calc(var(--size) * 0.42);
+left: 50%;
+transform: translateX(-50%);
+top: calc(var(--size) * 0.12);
+background: var(--color);
+border-radius: 50% 50% 38% 38% / 60% 60% 40% 40%;
+}
+
+/* clapper */
+.icon-bell::after {
+width: calc(var(--size) * 0.16);
+height: calc(var(--size) * 0.16);
+left: 50%;
+transform: translateX(-50%);
+bottom: calc(var(--size) * 0.12);
+background: var(--color);
+border-radius: 50%;
+}
+
+/* ============================= */
+/* CAMERA ICON */
+/* ============================= */
+.icon-camera::before,
+.icon-camera::after {
+content: "";
+position: absolute;
+box-sizing: border-box;
+}
+
+/* body detail (viewfinder) */
+.icon-camera::before {
+width: calc(var(--size) * 0.26);
+height: calc(var(--size) * 0.14);
+left: calc(var(--size) * 0.08);
+top: calc(var(--size) * 0.12);
+background: var(--color);
+border-radius: 0.06em;
+}
+
+/* lens */
+.icon-camera::after {
+width: calc(var(--size) * 0.46);
+height: calc(var(--size) * 0.46);
+left: 50%;
+transform: translateX(-50%);
+top: calc(var(--size) * 0.26);
+border-radius: 50%;
+border: var(--stroke) solid var(--color);
+background: transparent;
+}
+
+/* ============================= */
+/* CLOSE ICON (X) */
+/* ============================= */
+.icon-close::before,
+.icon-close::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: var(--stroke);
+background-color: var(--color);
+top: 50%;
+left: 50%;
+}
+
+.icon-close::before {
+transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.icon-close::after {
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ============================= */
+/* PLUS ICON (+) */
+/* ============================= */
+.icon-plus::before,
+.icon-plus::after {
+content: "";
+position: absolute;
+background-color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.icon-plus::before {
+width: calc(var(--size) * 0.6);
+height: var(--stroke);
+}
+
+.icon-plus::after {
+width: var(--stroke);
+height: calc(var(--size) * 0.6);
+}
+
+/* ============================= */
+/* SEARCH ICON */
+/* ============================= */
+.icon-search::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.5);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: calc(var(--size) * 0.15);
+left: calc(var(--size) * 0.12);
+box-sizing: border-box;
+}
+
+.icon-search::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.3);
+height: var(--stroke);
+background-color: var(--color);
+bottom: calc(var(--size) * 0.18);
+right: calc(var(--size) * 0.12);
+transform: rotate(45deg);
+}
+
+/* ============================= */
+/* MAIL ICON */
+/* ============================= */
+.icon-mail::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.75);
+height: calc(var(--size) * 0.55);
+border: var(--stroke) solid var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 2px;
+box-sizing: border-box;
+}
+
+.icon-mail::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.35);
+border-left: var(--stroke) solid var(--color);
+border-bottom: var(--stroke) solid var(--color);
+top: calc(var(--size) * 0.2);
+left: 50%;
+transform: translateX(-50%) rotate(-45deg);
+}
+
+/* ============================= */
+/* LOCK ICON */
+/* ============================= */
+.icon-lock::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+border: var(--stroke) solid var(--color);
+border-bottom: none;
+border-radius: 50% 50% 0 0;
+top: calc(var(--size) * 0.12);
+left: 50%;
+transform: translateX(-50%);
+box-sizing: border-box;
+}
+
+.icon-lock::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.55);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+bottom: calc(var(--size) * 0.15);
+left: 50%;
+transform: translateX(-50%);
+border-radius: 2px;
+}
+
+/* ============================= */
+/* USER ICON */
+/* ============================= */
+.icon-user::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.38);
+height: calc(var(--size) * 0.38);
+background-color: var(--color);
+border-radius: 50%;
+top: calc(var(--size) * 0.12);
+left: 50%;
+transform: translateX(-50%);
+}
+
+.icon-user::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+bottom: calc(var(--size) * 0.12);
+left: 50%;
+transform: translateX(-50%);
+border-radius: 100% 100% 0 0;
+}
+
+/* =========================================== */
+/* NAVIGATION & UI */
+/* =========================================== */
+
+/* 1. Menu (Hamburger) */
+.icon-menu::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: var(--stroke);
+background-color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+box-shadow:
+0 calc(var(--size) * -0.25) 0 0 var(--color),
+0 calc(var(--size) * 0.25) 0 0 var(--color);
+}
+
+/* 2. Home */
+.icon-home::before {
+content: "";
+position: absolute;
+width: 0;
+height: 0;
+border-left: calc(var(--size) * 0.45) solid transparent;
+border-right: calc(var(--size) * 0.45) solid transparent;
+border-bottom: calc(var(--size) * 0.4) solid var(--color);
+top: calc(var(--size) * 0.15);
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-home::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.45);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+bottom: calc(var(--size) * 0.15);
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 3. Settings (Gear) */
+.icon-settings::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.35);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-settings::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.7);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border: var(--stroke) dashed var(--color);
+border-radius: 50%;
+}
+
+/* 4. Dashboard (Grid) */
+.icon-dashboard::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+top: calc(var(--size) * 0.15);
+left: calc(var(--size) * 0.15);
+box-shadow: calc(var(--size) * 0.4) 0 0 0 var(--color);
+}
+.icon-dashboard::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+bottom: calc(var(--size) * 0.15);
+left: calc(var(--size) * 0.15);
+box-shadow: calc(var(--size) * 0.4) 0 0 0 var(--color);
+}
+
+/* 6. List */
+.icon-list::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: var(--stroke);
+background-color: var(--color);
+top: 30%;
+left: 20%;
+box-shadow:
+0 calc(var(--size) * 0.2) 0 0 var(--color),
+0 calc(var(--size) * 0.4) 0 0 var(--color);
+}
+
+/* 7. More Horizontal */
+.icon-more-h::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.15);
+height: calc(var(--size) * 0.15);
+background-color: var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+box-shadow:
+calc(var(--size) * -0.3) 0 0 0 var(--color),
+calc(var(--size) * 0.3) 0 0 0 var(--color);
+}
+
+/* 8. More Vertical */
+.icon-more-v::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.15);
+height: calc(var(--size) * 0.15);
+background-color: var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+box-shadow:
+0 calc(var(--size) * -0.3) 0 0 var(--color),
+0 calc(var(--size) * 0.3) 0 0 var(--color);
+}
+
+/* 9. Power */
+.icon-power::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.5);
+border: var(--stroke) solid var(--color);
+border-bottom-color: transparent;
+border-radius: 50%;
+top: 25%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-power::after {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* =========================================== */
+/* MEDIA CONTROLS */
+/* =========================================== */
+
+/* 11. Play */
+.icon-play::before {
+content: "";
+position: absolute;
+width: 0;
+height: 0;
+border-top: calc(var(--size) * 0.3) solid transparent;
+border-bottom: calc(var(--size) * 0.3) solid transparent;
+border-left: calc(var(--size) * 0.4) solid var(--color);
+top: 50%;
+left: 55%;
+transform: translate(-50%, -50%);
+}
+/* 13. Stop */
+.icon-stop::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.5);
+background-color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* 14. Record */
+.icon-record::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.5);
+background-color: var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* 15. Forward */
+.icon-forward::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.25) solid transparent;
+border-bottom: calc(var(--size) * 0.25) solid transparent;
+border-left: calc(var(--size) * 0.3) solid var(--color);
+top: 50%;
+left: 25%;
+transform: translateY(-50%);
+}
+.icon-forward::after {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.25) solid transparent;
+border-bottom: calc(var(--size) * 0.25) solid transparent;
+border-left: calc(var(--size) * 0.3) solid var(--color);
+top: 50%;
+right: 25%;
+transform: translateY(-50%);
+}
+
+/* 16. Rewind */
+.icon-rewind::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.25) solid transparent;
+border-bottom: calc(var(--size) * 0.25) solid transparent;
+border-right: calc(var(--size) * 0.3) solid var(--color);
+top: 50%;
+left: 25%;
+transform: translateY(-50%);
+}
+.icon-rewind::after {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.25) solid transparent;
+border-bottom: calc(var(--size) * 0.25) solid transparent;
+border-right: calc(var(--size) * 0.3) solid var(--color);
+top: 50%;
+right: 25%;
+transform: translateY(-50%);
+}
+
+/* 17. Skip Next */
+.icon-next::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.25) solid transparent;
+border-bottom: calc(var(--size) * 0.25) solid transparent;
+border-left: calc(var(--size) * 0.35) solid var(--color);
+top: 50%;
+left: 30%;
+transform: translateY(-50%);
+}
+.icon-next::after {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.5);
+background-color: var(--color);
+top: 50%;
+right: 25%;
+transform: translateY(-50%);
+}
+
+/* 18. Skip Prev */
+.icon-prev::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.25) solid transparent;
+border-bottom: calc(var(--size) * 0.25) solid transparent;
+border-right: calc(var(--size) * 0.35) solid var(--color);
+top: 50%;
+right: 30%;
+transform: translateY(-50%);
+}
+.icon-prev::after {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.5);
+background-color: var(--color);
+top: 50%;
+left: 25%;
+transform: translateY(-50%);
+}
+/* =========================================== */
+/* ARROWS */
+/* =========================================== */
+
+/* 21. Arrow Up */
+.icon-arrow-up::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+border-top: var(--stroke) solid var(--color);
+border-left: var(--stroke) solid var(--color);
+top: 35%;
+left: 50%;
+transform: translate(-50%, 0) rotate(45deg);
+}
+
+/* 22. Arrow Down */
+.icon-arrow-down::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+border-bottom: var(--stroke) solid var(--color);
+border-right: var(--stroke) solid var(--color);
+bottom: 35%;
+left: 50%;
+transform: translate(-50%, 0) rotate(45deg);
+}
+
+/* 23. Arrow Left */
+.icon-arrow-left::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+border-bottom: var(--stroke) solid var(--color);
+border-left: var(--stroke) solid var(--color);
+left: 35%;
+top: 50%;
+transform: translate(0, -50%) rotate(45deg);
+}
+
+/* 24. Arrow Right */
+.icon-arrow-right::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+border-top: var(--stroke) solid var(--color);
+border-right: var(--stroke) solid var(--color);
+right: 35%;
+top: 50%;
+transform: translate(0, -50%) rotate(45deg);
+}
+
+/* 25. Caret Up */
+.icon-caret-up::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-left: calc(var(--size) * 0.35) solid transparent;
+border-right: calc(var(--size) * 0.35) solid transparent;
+border-bottom: calc(var(--size) * 0.3) solid var(--color);
+top: 35%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 26. Caret Down */
+.icon-caret-down::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-left: calc(var(--size) * 0.35) solid transparent;
+border-right: calc(var(--size) * 0.35) solid transparent;
+border-top: calc(var(--size) * 0.3) solid var(--color);
+bottom: 35%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 27. Caret Left */
+.icon-caret-left::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.35) solid transparent;
+border-bottom: calc(var(--size) * 0.35) solid transparent;
+border-right: calc(var(--size) * 0.3) solid var(--color);
+left: 35%;
+top: 50%;
+transform: translateY(-50%);
+}
+
+/* 28. Caret Right */
+.icon-caret-right::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.35) solid transparent;
+border-bottom: calc(var(--size) * 0.35) solid transparent;
+border-left: calc(var(--size) * 0.3) solid var(--color);
+right: 35%;
+top: 50%;
+transform: translateY(-50%);
+}
+/* =========================================== */
+/* EDITING & TEXT */
+/* =========================================== */
+
+/* 31. Pencil */
+.icon-pencil::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.15);
+height: calc(var(--size) * 0.6);
+background-color: var(--color);
+top: 10%;
+left: 50%;
+transform: translateX(-50%) rotate(45deg);
+}
+.icon-pencil::after {
+content: "";
+position: absolute;
+width: 0;
+height: 0;
+border-left: calc(var(--size) * 0.1) solid transparent;
+border-right: calc(var(--size) * 0.1) solid transparent;
+border-top: calc(var(--size) * 0.15) solid var(--color);
+bottom: 23%;
+left: 19%;
+transform: translateX(-50%) rotate(45deg);
+}
+
+/* 32. Eraser */
+.icon-eraser::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+bottom: 25%;
+left: 20%;
+transform: rotate(-45deg);
+}
+.icon-eraser::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.3);
+height: calc(var(--size) * 0.35);
+background-color: var(--background); /* simulate eraser part */
+bottom: 28%;
+right: 31%;
+border-bottom: var(--stroke) solid var(--color);
+transform: rotate(-45deg);
+}
+/* 35. Bold */
+.icon-bold::before {
+content: "B";
+position: absolute;
+font-weight: bold;
+font-size: calc(var(--size) * 0.7);
+color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* 36. Italic */
+.icon-italic::before {
+content: "I";
+position: absolute;
+font-style: italic;
+font-weight: bold;
+font-size: calc(var(--size) * 0.7);
+color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* 37. Underline */
+.icon-underline::before {
+content: "U";
+position: absolute;
+font-weight: bold;
+font-size: calc(var(--size) * 0.6);
+color: var(--color);
+top: 40%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-underline::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: var(--stroke);
+background-color: var(--color);
+bottom: 20%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 38. Align Left */
+.icon-align-left::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: var(--stroke);
+background-color: var(--color);
+top: 30%;
+left: 20%;
+box-shadow: 0 calc(var(--size) * 0.15) 0 0 var(--color), 0 calc(var(--size) * 0.3) 0 0 var(--color);
+}
+.icon-align-left::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: var(--stroke);
+background-color: var(--color);
+bottom: 16%;
+left: 20%;
+}
+
+/* 39. Align Center */
+.icon-align-center::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: var(--stroke);
+background-color: var(--color);
+top: 30%;
+left: 20%;
+box-shadow: 0 calc(var(--size) * 0.15) 0 0 var(--color), 0 calc(var(--size) * 0.3) 0 0 var(--color);
+}
+.icon-align-center::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: var(--stroke);
+background-color: var(--color);
+bottom: 16%;
+left: 31%;
+}
+
+/* 40. Align Right */
+.icon-align-right::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: var(--stroke);
+background-color: var(--color);
+top: 30%;
+left: 20%;
+box-shadow: 0 calc(var(--size) * 0.15) 0 0 var(--color), 0 calc(var(--size) * 0.3) 0 0 var(--color);
+}
+.icon-align-right::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: var(--stroke);
+background-color: var(--color);
+bottom: 16%;
+left: 37%;
+}
+
+/* =========================================== */
+/* FILES & FOLDERS */
+/* =========================================== */
+
+/* 41. File */
+.icon-file::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.65);
+border: var(--stroke) solid var(--color);
+background-color: var(--background);
+top: 15%;
+left: 25%;
+border-radius: 2px;
+}
+.icon-file::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.15);
+height: calc(var(--size) * 0.15);
+border-top: var(--stroke) solid var(--color);
+border-right: var(--stroke) solid var(--color);
+top: 12%;
+right: 25%;
+}
+
+/* 42. Folder */
+.icon-folder::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.75);
+height: calc(var(--size) * 0.55);
+background-color: var(--color);
+bottom: 20%;
+left: 12%;
+border-radius: 2px;
+}
+.icon-folder::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.15);
+background-color: var(--color);
+top: 25%;
+left: 12%;
+border-radius: 2px 2px 0 0;
+}
+
+/* 43. Download */
+.icon-download::before {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-download::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.3);
+height: calc(var(--size) * 0.3);
+border-right: var(--stroke) solid var(--color);
+border-bottom: var(--stroke) solid var(--color);
+top: 40%;
+left: 50%;
+transform: translateX(-50%) rotate(45deg);
+}
+
+/* 44. Upload */
+.icon-upload::before {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+top: 40%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-upload::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.3);
+height: calc(var(--size) * 0.3);
+border-left: var(--stroke) solid var(--color);
+border-top: var(--stroke) solid var(--color);
+top: 25%;
+left: 50%;
+transform: translateX(-50%) rotate(45deg);
+}
+
+/* 45. Cloud */
+.icon-cloud::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+border-radius: 50%;
+top: 25%;
+left: 35%;
+}
+.icon-cloud::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.3);
+background-color: var(--color);
+border-radius: 50%;
+top: 35%;
+left: 20%;
+}
+
+/* 46. Cloud Download */
+.icon-cloud-dl::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+border-radius: 50px;
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-cloud-dl::after {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.3);
+background-color: var(--color);
+bottom: 15%;
+left: 50%;
+transform: translateX(-50%);
+box-shadow: calc(var(--size) * 0.1) calc(var(--size) * 0.1) 0 0 var(--color);
+}
+
+/* 47. Cloud Upload */
+.icon-cloud-up::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+border-radius: 50px;
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-cloud-up::after {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.3);
+background-color: var(--color);
+bottom: 15%;
+left: 50%;
+transform: translateX(-50%);
+box-shadow: calc(var(--size) * -0.1) calc(var(--size) * -0.1) 0 0 var(--color);
+}
+
+/* 48. Save (Floppy) */
+.icon-save::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.6);
+border: var(--stroke) solid var(--color);
+top: 20%;
+left: 20%;
+border-radius: 2px;
+}
+.icon-save::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.3);
+height: calc(var(--size) * 0.15);
+background-color: var(--color);
+bottom: 25%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 49. Trash */
+.icon-trash::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.5);
+border: var(--stroke) solid var(--color);
+bottom: 15%;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 2px;
+}
+.icon-trash::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.15);
+background-color: var(--color);
+top: 20%;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 2px;
+}
+
+/* 50. Archive (Box) */
+.icon-archive::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.55);
+border: var(--stroke) solid var(--color);
+bottom: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-archive::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.25);
+height: calc(var(--size) * 0.1);
+border-top: var(--stroke) solid var(--color);
+border-bottom: var(--stroke) solid var(--color);
+top: 45%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* =========================================== */
+/* SOCIAL & COMMERCE */
+/* =========================================== */
+
+/* 52. Star */
+.icon-star::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-left: calc(var(--size) * 0.35) solid transparent;
+border-right: calc(var(--size) * 0.35) solid transparent;
+border-bottom: calc(var(--size) * 0.35) solid var(--color);
+top: 30%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-star::after {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-left: calc(var(--size) * 0.35) solid transparent;
+border-right: calc(var(--size) * 0.35) solid transparent;
+border-top: calc(var(--size) * 0.35) solid var(--color);
+bottom: 24%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 55. Tag */
+.icon-tag::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.5);
+background-color: var(--color);
+top: 25%;
+left: 25%;
+clip-path: polygon(0 0, 70% 0, 100% 35%, 100% 100%, 0 100%);
+}
+.icon-tag::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.1);
+height: calc(var(--size) * 0.1);
+background-color: var(--background);
+border-radius: 50%;
+top: 35%;
+left: 35%;
+}
+
+/* 56. Flag */
+.icon-flag::before {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.75);
+background-color: var(--color);
+bottom: 15%;
+left: 25%;
+}
+.icon-flag::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.45);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+top: 20%;
+left: calc(25% + var(--stroke));
+}
+
+/* 57. Trophy */
+.icon-trophy::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.35);
+border: var(--stroke) solid var(--color);
+border-top: none;
+top: 20%;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 0 0 50% 50%;
+}
+.icon-trophy::after {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.25);
+background-color: var(--color);
+bottom: 20%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 58. Gift */
+.icon-gift::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.55);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+bottom: 20%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-gift::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.65);
+height: calc(var(--size) * 0.15);
+background-color: var(--color);
+top: 35%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 59. Diamond */
+.icon-diamond::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+top: 30%;
+left: 50%;
+transform: translateX(-50%) rotate(45deg);
+}
+
+/* 60. Bitcoin */
+.icon-bitcoin::before {
+content: "₿";
+position: absolute;
+font-weight: bold;
+font-size: calc(var(--size) * 0.7);
+color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* =========================================== */
+/* COMMUNICATION */
+/* =========================================== */
+/* 63. Mail */
+.icon-mail::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.75);
+height: calc(var(--size) * 0.55);
+border: var(--stroke) solid var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 2px;
+}
+.icon-mail::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.35);
+border-left: var(--stroke) solid var(--color);
+border-bottom: var(--stroke) solid var(--color);
+top: 20%;
+left: 50%;
+transform: translateX(-50%) rotate(-45deg);
+}
+
+/* 64. Chat */
+.icon-chat::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.55);
+border: var(--stroke) solid var(--color);
+border-radius: 10px;
+top: 20%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-chat::after {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-top: calc(var(--size) * 0.15) solid var(--color);
+border-left: calc(var(--size) * 0.1) solid transparent;
+border-right: calc(var(--size) * 0.1) solid transparent;
+bottom: 12%;
+left: 57%;
+
+}
+/* 66. Support (Headset) */
+.icon-support::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.6);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+border-bottom-color: transparent;
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-support::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.15);
+height: calc(var(--size) * 0.2);
+background-color: var(--color);
+bottom: 20%;
+right: 20%;
+border-radius: 2px;
+box-shadow: calc(var(--size) * -0.5) 0 0 0 var(--color);
+}
+
+/* 67. Bell */
+.icon-bell::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.5);
+background-color: var(--color);
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+clip-path: polygon(10% 100%, 90% 100%, 100% 40%, 50% 0, 0 40%);
+}
+.icon-bell::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.15);
+height: calc(var(--size) * 0.1);
+background-color: var(--color);
+border-radius: 50%;
+bottom: 18%;
+left: 50%;
+transform: translateX(-50%);
+}
+/* 69. Send */
+.icon-send::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.65);
+height: calc(var(--size) * 0.65);
+border-top: var(--stroke) solid var(--color);
+border-right: var(--stroke) solid var(--color);
+top: 15%;
+left: 15%;
+transform: rotate(45deg);
+}
+.icon-send::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.65);
+height: var(--stroke);
+background-color: var(--color);
+top: 43%;
+left: 16%;
+}
+
+/* =========================================== */
+/* STATUS & ALERTS */
+/* =========================================== */
+
+/* 71. Info */
+.icon-info::before {
+content: "i";
+position: absolute;
+font-style: italic;
+font-weight: bold;
+font-size: calc(var(--size) * 0.6);
+color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* 72. Warning */
+.icon-warning::before {
+content: "";
+position: absolute;
+width: 0; height: 0;
+border-left: calc(var(--size) * 0.4) solid transparent;
+border-right: calc(var(--size) * 0.4) solid transparent;
+border-bottom: calc(var(--size) * 0.7) solid var(--color);
+top: 10%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-warning::after {
+content: "!";
+position: absolute;
+font-weight: bold;
+font-size: calc(var(--size) * 0.4);
+color: var(--background);
+top: 25%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 73. Danger (Circle X) */
+.icon-danger::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.7);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-danger::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: var(--stroke);
+background-color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotate(45deg);
+box-shadow: 0 0 0 0 var(--background), 0 0 0 0 var(--color); /* visual hack for cross */
+}
+
+/* 74. Success (Circle Check) */
+.icon-success::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.7);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-success::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.2);
+height: calc(var(--size) * 0.35);
+border-bottom: var(--stroke) solid var(--color);
+border-right: var(--stroke) solid var(--color);
+top: 29%;
+left: 43%;
+transform: rotate(45deg);
+}
+
+/* 75. Help (Circle ?) */
+.icon-help::before {
+content: "?";
+position: absolute;
+font-weight: bold;
+font-size: calc(var(--size) * 0.6);
+color: var(--color);
+top: 56%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-help::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.7);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* 76. Ban */
+.icon-ban::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.7);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-ban::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.85);
+height: var(--stroke);
+background-color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* 77. Eye */
+.icon-eye::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.35);
+border: var(--stroke) solid var(--color);
+border-radius: 75%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-eye::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.2);
+height: calc(var(--size) * 0.2);
+background-color: var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* 78. Eye Off */
+.icon-eye-off::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.35);
+border: var(--stroke) solid var(--color);
+border-radius: 75%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-eye-off::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: var(--stroke);
+background-color: var(--color);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* 79. Loading (Spinner) */
+.icon-spinner::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.7);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+border-top-color: transparent;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+/* 80. Wifi */
+.icon-wifi::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.3);
+border-top: var(--stroke) solid var(--color);
+border-radius: 50% 50% 0 0;
+top: 25%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-wifi::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.3);
+height: calc(var(--size) * 0.15);
+border-top: var(--stroke) solid var(--color);
+border-radius: 50% 50% 0 0;
+top: 45%;
+left: 50%;
+transform: translateX(-50%);
+box-shadow: 0 calc(var(--size) * 0.25) 0 -3px var(--color);
+}
+
+/* =========================================== */
+/* USER & SECURITY */
+/* =========================================== */
+
+/* 81. User */
+.icon-user::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+border-radius: 50%;
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-user::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.65);
+height: calc(var(--size) * 0.35);
+background-color: var(--color);
+bottom: 15%;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 20px 20px 0 0;
+}
+
+/* 83. Users (Group) */
+.icon-users::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.3);
+height: calc(var(--size) * 0.3);
+background-color: var(--color);
+border-radius: 50%;
+top: 20%;
+left: 25%;
+box-shadow: calc(var(--size) * 0.25) 0 0 0 var(--color);
+}
+.icon-users::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.3);
+background-color: var(--color);
+bottom: 15%;
+left: 20%;
+border-radius: 20px 20px 0 0;
+}
+
+/* 84. Lock */
+.icon-lock::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.45);
+height: calc(var(--size) * 0.45);
+border: var(--stroke) solid var(--color);
+border-bottom: none;
+border-radius: 50% 50% 0 0;
+top: 12%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-lock::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+bottom: 15%;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 3px;
+}
+
+/* 85. Unlock */
+.icon-unlock::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.45);
+height: calc(var(--size) * 0.45);
+border: var(--stroke) solid var(--color);
+border-bottom: none;
+border-radius: 50% 50% 0 0;
+top: 6%;
+right: 14%;
+}
+.icon-unlock::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.6);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+bottom: 13%;
+left: 43%;
+transform: translateX(-50%);
+border-radius: 3px;
+}
+
+/* 86. Key */
+.icon-key::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 20%;
+left: 15%;
+}
+.icon-key::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.45);
+height: calc(var(--size) * 0.15);
+background-color: var(--color);
+bottom: 25%;
+right: 10%;
+transform: rotate(45deg);
+}
+
+/* 87. Shield */
+.icon-shield::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.55);
+height: calc(var(--size) * 0.7);
+border: var(--stroke) solid var(--color);
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 5px 5px 50% 50%;
+}
+.icon-shield::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.25);
+height: calc(var(--size) * 0.35);
+border-bottom: var(--stroke) solid var(--color);
+border-right: var(--stroke) solid var(--color);
+top: 25%;
+left: 50%;
+transform: translateX(-50%) rotate(45deg);
+}
+
+/* 88. Login */
+.icon-login::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: var(--stroke);
+background-color: var(--color);
+top: 50%;
+left: 15%;
+transform: translateY(-50%);
+}
+.icon-login::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.2);
+height: calc(var(--size) * 0.2);
+border-top: var(--stroke) solid var(--color);
+border-right: var(--stroke) solid var(--color);
+top: 50%;
+left: 40%;
+transform: translateY(-50%) rotate(45deg);
+}
+
+/* 89. Logout */
+.icon-logout::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: var(--stroke);
+background-color: var(--color);
+top: 50%;
+right: 15%;
+transform: translateY(-50%);
+}
+.icon-logout::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.2);
+height: calc(var(--size) * 0.2);
+border-left: var(--stroke) solid var(--color);
+border-bottom: var(--stroke) solid var(--color);
+top: 50%;
+right: 40%;
+transform: translateY(-50%) rotate(45deg);
+}
+
+/* 90. Fingerprint */
+.icon-fingerprint::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.7);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 15%;
+left: 15%;
+border-right-color: transparent;
+}
+.icon-fingerprint::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 30%;
+left: 30%;
+border-left-color: transparent;
+}
+
+/* =========================================== */
+/* MISC */
+/* =========================================== */
+
+/* 91. Sun */
+.icon-sun::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.4);
+height: calc(var(--size) * 0.4);
+background-color: var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-sun::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.1);
+height: calc(var(--size) * 0.1);
+background-color: var(--color);
+top: 15%;
+left: 45%;
+box-shadow:
+0 calc(var(--size) * 0.6) 0 0 var(--color),
+calc(var(--size) * 0.3) calc(var(--size) * 0.3) 0 0 var(--color),
+calc(var(--size) * -0.3) calc(var(--size) * 0.3) 0 0 var(--color),
+calc(var(--size) * 0.3) calc(var(--size) * -0.3) 0 0 var(--color),
+calc(var(--size) * -0.3) calc(var(--size) * -0.3) 0 0 var(--color);
+}
+
+/* 92. Moon */
+.icon-moon::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.5);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+border-left-color: transparent;
+border-bottom-color: transparent;
+top: 20%;
+left: 25%;
+transform: rotate(-45deg);
+}
+
+/* 93. Clock */
+.icon-clock::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.7);
+height: calc(var(--size) * 0.7);
+border: var(--stroke) solid var(--color);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.icon-clock::after {
+content: "";
+position: absolute;
+width: var(--stroke);
+height: calc(var(--size) * 0.25);
+background-color: var(--color);
+top: 25%;
+left: calc(50% - var(--stroke)/2);
+transform-origin: bottom;
+transform: rotate(45deg); /* Set time here */
+}
+
+/* 94. Location */
+.icon-location::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.7);
+background-color: var(--color);
+border-radius: 50% 50% 50% 0;
+top: 10%;
+left: 50%;
+transform: translateX(-50%) rotate(-45deg);
+}
+.icon-location::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.15);
+height: calc(var(--size) * 0.15);
+background-color: var(--background);
+border-radius: 50%;
+top: 30%;
+left: 50%;
+transform: translateX(-50%);
+}
+/* 96. Plug */
+.icon-plug::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.5);
+height: calc(var(--size) * 0.35);
+border: var(--stroke) solid var(--color);
+border-radius: 4px;
+top: 30%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-plug::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.1);
+height: calc(var(--size) * 0.25);
+background-color: var(--color);
+top: 65%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 97. Thermometer */
+.icon-thermo::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.2);
+height: calc(var(--size) * 0.6);
+border: var(--stroke) solid var(--color);
+border-radius: 10px;
+top: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-thermo::after {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.2);
+height: calc(var(--size) * 0.2);
+background-color: var(--color);
+border-radius: 50%;
+bottom: 15%;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* 99. Lightning */
+.icon-lightning::before {
+content: "";
+position: absolute;
+width: calc(var(--size) * 0.35);
+height: calc(var(--size) * 0.6);
+background-color: var(--color);
+top: 15%;
+left: 30%;
+clip-path: polygon(50% 0, 100% 40%, 60% 40%, 80% 100%, 0 50%, 40% 50%);
+}
